@@ -1,0 +1,251 @@
+@charset "utf-8";
+body {
+  overflow-x: hidden;
+}
+.section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+#profile .content {
+  text-align: center;
+}
+.typing-effect {
+  font-size: 24px;
+  height: 32px;
+  margin: 20px 50px;
+  position: relative;
+}
+.typing-effect::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  right: -10px;
+  width: 2px;
+  background-color: black;
+  animation: blink 0.7s infinite;
+}
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.icons {
+  margin-top: 20px;
+}
+.icons a {
+  font-size: 24px;
+  margin: 0 10px;
+}
+#projects .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.timeline {
+  border: 1px solid red;
+  max-width: 1300px;
+  height: 700px;
+  overflow-x: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+}
+.timeline::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+.grid {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.project-card {
+  perspective: 1000px;
+  width: 500px;
+  height: 300px;
+  margin: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.card-inner.flipped {
+  transform: rotateY(180deg);
+}
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.card-front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+.card-back {
+  transform: rotateY(180deg);
+}
+.thumbnail {
+  width: 100px;
+  cursor: pointer;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+#slogan .content {
+  text-align: center;
+  overflow: hidden;
+}
+.scrolling-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.text-row {
+  font-size: 36px;
+  font-weight: bold;
+  color: lightgrey;
+  white-space: nowrap;
+}
+.text-row.left {
+  animation: scroll-left 20s linear infinite;
+}
+.text-row.center {
+  color: grey;
+  transition: color 0.5s;
+}
+.text-row.right {
+  animation: scroll-right 20s linear infinite;
+}
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+.highlight {
+  color: purple;
+}
+#contact .content {
+  text-align: center;
+}
+
+/* 스타일링 추가 */
+#profile {
+  background: #f7f7f7;
+}
+#skills {
+  background: #eaeaea;
+}
+#projects {
+  background: #dcdcdc;
+}
+#slogan {
+  background: #cfcfcf;
+}
+#contact {
+  background: #bfbfbf;
+}
+
+/* Custom cursor styles  */
+body {
+  cursor: none;
+  position: relative;
+}
+.custom-cursor-outer,
+.custom-cursor-inner {
+  position: absolute;
+  pointer-events: none;
+  z-index: 10000;
+}
+.custom-cursor-outer {
+  width: 40px;
+  height: 40px;
+  border: 1px solid lightgray;
+  border-radius: 50%;
+  transition: transform 0.25s ease-out, opacity 0.15s;
+  mix-blend-mode: difference;
+}
+.custom-cursor-inner {
+  width: 15px;
+  height: 15px;
+  background-color: lightgray;
+  border-radius: 50%;
+  mix-blend-mode: difference;
+}
+
+.paper-plane {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-image: url(../img/airplane.png);
+  background-size: contain;
+  z-index: 10000000;
+}

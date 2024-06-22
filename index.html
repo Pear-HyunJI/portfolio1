@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>포트폴리오</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/index.js"></script>
+  </head>
+  <body>
+    <div id="wrap">
+      <!-- 1번재 섹션 - 프로필섹션 -->
+      <section id="profile" class="section">
+        <div class="content">
+          <h1>이름</h1>
+          <p class="typing-effect">프론트엔드 개발자입니다</p>
+          <div class="icons">
+            <a href="https://github.com" target="_blank"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a href="https://blog.com" target="_blank"
+              ><i class="fas fa-blog"></i
+            ></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2번째 섹션 - 스킬섹션 -->
+      <section id="skills" class="section">
+        <div class="content">
+          <h2>My Skills</h2>
+          <div class="skill-category">
+            <h3>Languages</h3>
+            <ul>
+              <li>HTML5</li>
+              <li>CSS3</li>
+              <li>JavaScript ES6</li>
+              <li>TypeScript</li>
+              <li>SQL (MariaDB, H2)</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h3>Tools</h3>
+            <ul>
+              <li>Figma</li>
+              <li>Vite</li>
+              <li>Firebase</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h3>Libraries</h3>
+            <ul>
+              <li>React</li>
+              <li>Redux</li>
+              <li>jQuery</li>
+              <li>Styled-components</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h3>Frameworks</h3>
+            <ul>
+              <li>Vue</li>
+              <li>Next.js</li>
+              <li>Node.js</li>
+              <li>Tailwind CSS</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h3>Databases</h3>
+            <ul>
+              <li>MariaDB</li>
+              <li>H2SQL</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3번째 섹션 - 프로젝트섹션 -->
+      <section id="projects" class="section">
+        <div class="content">
+          <h2>My Projects</h2>
+          <div class="timeline">
+            <ul class="grid">
+              <li class="project-card">
+                <div class="card-inner">
+                  <div
+                    class="card-front"
+                    style="background-image: url(../img/bg4-1.jpg)"
+                  >
+                    <h3>Project 1</h3>
+                    <p>Project description here...</p>
+                  </div>
+                  <div class="card-back" style="background-color: red">
+                    <h3>Project 1</h3>
+                    <img
+                      src="img/project1.jpg"
+                      alt="Project 1"
+                      class="thumbnail"
+                    />
+                    <p>Description of Project 1</p>
+                    <a href="https://github.com/project1" target="_blank"
+                      >GitHub Repository</a
+                    >
+                  </div>
+                </div>
+              </li>
+              <li class="project-card">
+                <div class="card-inner">
+                  <div
+                    class="card-front"
+                    style="background-image: url(../img/bg1.jpg)"
+                  >
+                    <h3>Project 2</h3>
+                    <p>Project description here...</p>
+                  </div>
+                  <div
+                    class="card-back"
+                    style="background-image: url(../img/bg1.jpg)"
+                  >
+                    <h3>Project 2</h3>
+                    <img
+                      src="img/project2.jpg"
+                      alt="Project 2"
+                      class="thumbnail"
+                    />
+                    <p>Description of Project 2</p>
+                    <a href="https://github.com/project2" target="_blank"
+                      >GitHub Repository</a
+                    >
+                  </div>
+                </div>
+              </li>
+              <li class="project-card">
+                <div class="card-inner">
+                  <div
+                    class="card-front"
+                    style="background-image: url('img/project3_front.jpg')"
+                  >
+                    <h3>Project 3</h3>
+                    <p>Project description here...</p>
+                  </div>
+                  <div
+                    class="card-back"
+                    style="background-image: url('img/project3_back.jpg')"
+                  >
+                    <h3>Project 3</h3>
+                    <img
+                      src="img/project3.jpg"
+                      alt="Project 3"
+                      class="thumbnail"
+                    />
+                    <p>Description of Project 3</p>
+                    <a href="https://github.com/project3" target="_blank"
+                      >GitHub Repository</a
+                    >
+                  </div>
+                </div>
+              </li>
+              <!-- Add more project cards as needed -->
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4번째 섹션 - 슬로건섹션 -->
+      <section id="slogan" class="section">
+        <div class="content">
+          <div class="scrolling-text">
+            <div class="text-row left">
+              Web Development JavaScript React Vue Next.js CSS HTML5 Node.js
+              Frontend
+            </div>
+            <div class="text-row center">
+              열심히 배우고 성장하는 개발자입니다
+            </div>
+            <div class="text-row right">
+              Web Development JavaScript React Vue Next.js CSS HTML5 Node.js
+              Frontend
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5번째 섹션 - 콘텍트 섹션 -->
+      <section id="contact" class="section">
+        <div class="content">
+          <h2>Contact Me</h2>
+          <div class="formbox">
+            <form id="contact-form">
+              <fieldset>
+                <legend class="blind">연락처를 남겨주세요.</legend>
+                <table>
+                  <colgroup>
+                    <col />
+                    <col />
+                  </colgroup>
+                  <tr>
+                    <td>
+                      <label for="irum">성명</label>
+                    </td>
+                    <td>
+                      <input type="text" name="irum" id="irum" required />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label for="phone">연락처</label>
+                    </td>
+                    <td>
+                      <input type="text" name="phone" id="phone" required />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label for="email">이메일</label>
+                    </td>
+                    <td>
+                      <input type="email" id="email" name="email" required />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label for="memo">메모</label>
+                    </td>
+                    <td>
+                      <textarea name="memo" id="memo" required></textarea>
+                    </td>
+                  </tr>
+                </table>
+              </fieldset>
+              <div class="btn">
+                <button type="submit">전송</button>
+                <button type="reset">취소</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Modal for enlarged image -->
+      <div id="modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-img" />
+      </div>
+    </div>
+  </body>
+</html>
