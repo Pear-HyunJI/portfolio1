@@ -66,7 +66,8 @@ $(document).ready(function () {
     });
   });
 
-  $(".thumbnail").on("click", function () {
+  $(".thumbnail").on("click", function (e) {
+    e.stopPropagation(); // 이벤트 전파 중단
     const $thumbnail = $(this);
     const index = $thumbnail.index();
     $(".slide").removeClass("active");
