@@ -3,26 +3,40 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 민들레 홀씨 생성
   const seedsContainer = document.querySelector(".seeds");
-  const numSeeds = 100; // 홀씨 개수 조정
+  const numSeeds = 200; // 홀씨 개수 조정 (더 많고 빽빽하게)
 
   for (let i = 0; i < numSeeds; i++) {
-    const seed = document.createElement("div");
-    seed.classList.add("seed");
+    const seedGroup = document.createElement("div");
+    seedGroup.classList.add("seed-group");
+
+    const seed1 = document.createElement("div");
+    seed1.classList.add("seed", "seed1");
+    seed1.style.left = "-10px"; // 위치 조정
+    seed1.style.top = "-10px";
+
+    const seed2 = document.createElement("div");
+    seed2.classList.add("seed", "seed2");
+    seed2.style.left = "20px";
+    seed2.style.top = "20px";
+
+    seedGroup.appendChild(seed1);
+    seedGroup.appendChild(seed2);
 
     // 원형 배치
     const angle = (i / numSeeds) * Math.PI * 2;
-    const radius = 50; // 반지름 조정
+    const radius = 80; // 반지름 조정 (더 빽빽하게)
+
     const x = Math.cos(angle) * radius + radius;
     const y = Math.sin(angle) * radius + radius;
 
-    seed.style.left = `${x}px`;
-    seed.style.top = `${y}px`;
-    seedsContainer.appendChild(seed);
+    seedGroup.style.left = `${x}px`;
+    seedGroup.style.top = `${y}px`;
+    seedsContainer.appendChild(seedGroup);
   }
 
   // 홀씨 애니메이션
   document.addEventListener("mousemove", (e) => {
-    const seeds = document.querySelectorAll(".seed");
+    const seeds = document.querySelectorAll(".seed-group");
     seeds.forEach((seed) => {
       const rect = seed.getBoundingClientRect();
       const seedX = rect.left + window.scrollX + rect.width / 2;
@@ -41,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  $(window).on("load", function () {
-    $("#loading-screen").fadeOut(100);
-  });
+  // $(window).on("load", function () {
+  //   $("#loading-screen").fadeOut(100);
+  // });
 });
