@@ -24,28 +24,21 @@ $(document).ready(function () {
       }
       setTimeout(type, 1500);
     }
+    console.log($(window).scrollTop());
+    // 스타트 섹션이 지나면 네비게이션 변경
+    if (
+      $(window).scrollTop() + $(window).height() >
+      $("#profile").offset().top
+    ) {
+      $("#menu").fadeIn();
+      $("#menu2").fadeOut();
+    } else {
+      $("#menu").fadeOut();
+      $("#menu2").fadeIn();
+    }
   }
 
   type();
-
-  $(window).on("scroll", function () {
-    let windowHeight = $(window).height();
-    let scrollTop = $(window).scrollTop();
-    let sloganOffset = $("#slogan").offset().top;
-    let sloganHeight = $("#slogan").outerHeight();
-
-    if (scrollTop + windowHeight > sloganOffset + sloganHeight / 2) {
-      $("#slogan .text-row.center").css("color", "black");
-    }
-    if (scrollTop + windowHeight > sloganOffset + (sloganHeight * 3) / 4) {
-      $("#slogan .text-row.center").html(function (_, html) {
-        return html.replace(
-          /성장하는 개발자/,
-          '<span class="highlight">성장하는 개발자</span>'
-        );
-      });
-    }
-  });
 
   $(".project-card").on("click", function (e) {
     e.stopPropagation();
@@ -191,7 +184,7 @@ $(document).ready(function () {
   });
 
   // 메뉴 클릭 시 섹션으로 스크롤 이동
-  $("#menu a").on("click", function (e) {
+  $("#menu a, #menu2 a").on("click", function (e) {
     e.preventDefault();
     let target = $($(this).attr("href"));
     console.log("target", target);
