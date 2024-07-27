@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 원형 배치
     const angle = (i / numSeeds) * Math.PI * 2;
-    const radius = 80; // 반지름 조정 (더 빽빽하게)
+    const radius = 120; // 반지름 조정 (더 빽빽하게)
 
     const x = Math.cos(angle) * radius + radius;
     const y = Math.sin(angle) * radius + radius;

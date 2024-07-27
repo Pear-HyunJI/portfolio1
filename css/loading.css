@@ -1,7 +1,8 @@
 #dandelion {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
+  margin: 20px;
 }
 
 .seeds {
@@ -29,11 +30,11 @@
 }
 
 .seed.seed1 {
-  background-color: red;
+  background-color: #f5a950;
 }
 
 .seed.seed2 {
-  background-color: blue;
+  background-color: #64d6a6;
 }
 
 @keyframes spin {
