@@ -287,7 +287,6 @@ body {
   background-color: rgba(0, 0, 0, 0.8);
 }
 /* slogan section */
-
 #slogan h2 {
   font-size: 38px;
   margin-bottom: 20px;
@@ -297,9 +296,9 @@ body {
 .scrolling-text {
   display: flex;
   flex-direction: column;
-
   width: 100%;
   margin-bottom: 30px;
+  overflow: hidden;
 }
 
 .text-row {
@@ -356,6 +355,24 @@ body {
 }
 .statement p {
   padding: 10px 0 0 0;
+}
+
+@media (max-width: 960px) {
+  .statement1 {
+    display: none;
+  }
+  .statement2 {
+    display: block;
+  }
+}
+
+@media (min-width: 961px) {
+  .statement1 {
+    display: block;
+  }
+  .statement2 {
+    display: none;
+  }
 }
 
 /* Contact section */
@@ -543,6 +560,11 @@ body {
   .card-back h3 {
     font-size: 28px;
   }
+  /* slogan section */
+  #slogan .content {
+    margin: 100px 200px 0 200px;
+    overflow: hidden;
+  }
 }
 
 @media (max-width: 1130px) {
@@ -602,6 +624,11 @@ body {
   }
   .detail-info p {
     font-size: 12px;
+  }
+  /* slogan section */
+  #slogan .content {
+    margin: 50px 100px 0 200px;
+    overflow: hidden;
   }
 }
 
@@ -692,6 +719,11 @@ body {
   .timeline {
     padding-left: 0px;
     height: 420px;
+  }
+  /* slogan section */
+  #slogan .content {
+    margin: 20px 20px 0 120px;
+    overflow: hidden;
   }
 }
 @media (max-width: 600px) {
