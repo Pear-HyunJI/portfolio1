@@ -134,11 +134,73 @@ body {
 }
 .card-back {
   transform: rotateY(180deg);
+  padding: 30px;
 }
+.card-back h3 {
+  font-size: 30px;
+  color: #404040;
+}
+
+/* 프로젝트 카드 뒷면 상세*/
+.card-back-detail {
+  display: flex;
+  text-align: left;
+  padding: 10px;
+}
+
+.detail-image-slider {
+  width: 30%;
+  position: relative;
+}
+
+.detail-image-slider .slide {
+  display: none;
+  width: 100%;
+}
+
+.detail-image-slider .slide.active {
+  display: block;
+}
+
+.thumbnail-indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
 .thumbnail {
-  width: 100px;
+  width: 30px;
+  height: 30px;
+  margin: 0 5px;
   cursor: pointer;
+  opacity: 0.5;
 }
+
+.thumbnail.active {
+  opacity: 1;
+}
+.info-wrap {
+  display: flex;
+  padding: 5px;
+  font-size: 12px;
+  align-items: center;
+}
+.info-wrap {
+}
+.info-wrap a {
+  font-size: 16px;
+}
+
+.info-wrap a:hover {
+  color: blue;
+}
+
+.one {
+  font-size: 16px;
+  width: 110px;
+}
+
+/* 프로젝트 사진 모달 */
 .modal {
   display: none;
   position: fixed;
@@ -150,6 +212,10 @@ body {
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.9);
+}
+.modal-content-container {
+  position: relative;
+  text-align: center;
 }
 .modal-content {
   margin: auto;
@@ -171,6 +237,29 @@ body {
   color: #bbb;
   text-decoration: none;
   cursor: pointer;
+}
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 /* slogan section */
 #slogan .content {
@@ -314,32 +403,48 @@ body {
 }
 
 /* 네비게이션 스타일 */
+/* 네비게이션 스타일 */
 #menu {
   position: fixed;
-  top: 50%;
-  left: 20px;
-  transform: translateY(-50%);
+  top: 30px;
+  left: 50px;
   z-index: 1000;
   list-style: none;
   padding: 0;
   margin: 0;
   display: none;
 }
+
 #menu li {
-  margin: 10px 0;
+  margin: 5px 0;
+  position: relative; /* ::before 요소의 절대 위치 설정을 위해 부모 요소를 상대 위치로 설정 */
 }
+
 #menu li a {
   text-decoration: none;
   color: black;
   font-size: 18px;
-  padding: 10px;
   display: block;
   border-radius: 5px;
   transition: background-color 0.3s;
 }
+
 #menu li.on a {
-  background-color: blue;
-  color: white;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+#menu li.on a::before {
+  content: "";
+  border-radius: 50%;
+  border: 2px solid #000;
+  width: 5px;
+  height: 5px;
+
+  position: absolute;
+  left: -15px; /* 동그라미 위치 조정 */
+  top: 50%; /* 세로 중앙 정렬 */
+  transform: translateY(-50%); /* 세로 중앙 정렬 */
 }
 
 /* 스타트 섹션 스타일 */

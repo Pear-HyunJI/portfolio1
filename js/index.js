@@ -52,17 +52,39 @@ $(document).ready(function () {
     }
   });
 
-  $(".thumbnail").on("click", function (e) {
-    e.stopPropagation();
+  let currentSlideIndex = 0;
+  const slides = [];
+
+  $(".slide").each(function (index) {
     const src = $(this).attr("src");
-    $("#modal-img").attr("src", src);
-    $("#modal").css("display", "block");
+    slides.push(src);
+    $(this).on("click", function (e) {
+      e.stopPropagation();
+      currentSlideIndex = index;
+      $("#modal-img").attr("src", src);
+      $("#modal").css("display", "block");
+    });
+  });
+
+  $(".thumbnail").on("click", function () {
+    const $thumbnail = $(this);
+    const index = $thumbnail.index();
+    $(".slide").removeClass("active");
+    $(".slide").eq(index).addClass("active");
+    $(".thumbnail").removeClass("active");
+    $thumbnail.addClass("active");
   });
 
   $(".close").on("click", function () {
     $("#modal").css("display", "none");
   });
 
+  window.changeSlide = function (n) {
+    currentSlideIndex = (currentSlideIndex + n + slides.length) % slides.length;
+    $("#modal-img").attr("src", slides[currentSlideIndex]);
+  };
+
+  // Custom cursor logic
   $("html").append(
     '<div class="custom-cursor-outer"></div><div class="custom-cursor-inner"></div>'
   );
