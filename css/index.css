@@ -2,6 +2,7 @@
 body {
   overflow-x: hidden;
   position: relative;
+  scroll-snap-type: y mandatory;
 }
 .section {
   height: 100vh;
@@ -9,6 +10,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 20px;
+  scroll-snap-align: start;
 }
 
 /* profile section */
