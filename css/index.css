@@ -74,8 +74,8 @@ body {
 }
 .timeline {
   border: 1px solid red;
-  max-width: 1300px;
-  height: 500px;
+  max-width: 100vw;
+  height: 600px;
   overflow-x: hidden;
   white-space: nowrap;
   display: flex;
@@ -83,6 +83,7 @@ body {
   justify-content: flex-start;
   scroll-behavior: smooth;
   scrollbar-width: none;
+  padding-left: 300px;
 }
 .timeline::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
@@ -95,9 +96,9 @@ body {
 }
 .project-card {
   perspective: 1000px;
-  width: 500px;
-  height: 300px;
-  margin: 10px;
+  width: 760px;
+  height: 500px;
+  margin: 50px;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
@@ -109,6 +110,7 @@ body {
   transition: transform 0.6s;
   transform-style: preserve-3d;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
 }
 .card-inner.flipped {
   transform: rotateY(180deg);
@@ -119,7 +121,7 @@ body {
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  border-radius: 10px;
+  border-radius: 30px;
   background-size: cover;
   background-position: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -273,7 +275,7 @@ body {
 
 /* 반응형 디자인 */
 @media (max-width: 1400px) {
-  .timeline {
+  /* .timeline {
     border: 1px solid red;
     width: 1000px;
     height: 500px;
@@ -282,11 +284,11 @@ body {
     perspective: 1000px;
     width: 500px;
     height: 300px;
-  }
+  } */
 }
 
 @media (max-width: 1100px) {
-  .timeline {
+  /* .timeline {
     border: 1px solid red;
     width: 800px;
     height: 500px;
@@ -295,18 +297,18 @@ body {
     perspective: 1000px;
     width: 500px;
     height: 300px;
-  }
+  } */
 }
 
 @media (max-width: 768px) {
-  .timeline {
+  /* .timeline {
     width: 100%;
     height: auto;
   }
   .project-card {
     width: 90%;
     height: auto;
-  }
+  } */
 }
 
 /* 네비게이션 스타일 */
