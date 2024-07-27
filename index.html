@@ -14,12 +14,28 @@
     />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/loading.css" />
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/index.js"></script>
+    <script src="js/loading.js"></script>
   </head>
   <body>
+    <div id="loading-screen">
+      <div id="dandelion">
+        <div class="seeds"></div>
+      </div>
+      <div class="loading-text">Loading...</div>
+    </div>
     <div id="wrap">
-      <!-- 1번재 섹션 - 프로필섹션 -->
+      <ul id="menu">
+        <li><a href="#profile">About Me</a></li>
+        <li><a href="#skills">My Skills</a></li>
+        <li><a href="#projects">My Portfolio</a></li>
+        <li><a href="#slogan">slogan</a></li>
+        <li><a href="#contact">Contact Me</a></li>
+      </ul>
+
       <section id="profile" class="section">
         <div class="content">
           <h1>이름</h1>
@@ -35,7 +51,6 @@
         </div>
       </section>
 
-      <!-- 2번째 섹션 - 스킬섹션 -->
       <section id="skills" class="section">
         <div class="content">
           <h2>My Skills</h2>
@@ -85,7 +100,6 @@
         </div>
       </section>
 
-      <!-- 3번째 섹션 - 프로젝트섹션 -->
       <section id="projects" class="section">
         <div class="content">
           <h2>My Projects</h2>
@@ -172,7 +186,6 @@
         </div>
       </section>
 
-      <!-- 4번째 섹션 - 슬로건섹션 -->
       <section id="slogan" class="section">
         <div class="content">
           <div class="scrolling-text">
@@ -191,7 +204,6 @@
         </div>
       </section>
 
-      <!-- 5번째 섹션 - 콘텍트 섹션 -->
       <section id="contact" class="section">
         <div class="content">
           <h2>Contact Me</h2>
@@ -247,7 +259,6 @@
         </div>
       </section>
 
-      <!-- Modal for enlarged image -->
       <div id="modal" class="modal">
         <span class="close">&times;</span>
         <img class="modal-content" id="modal-img" />

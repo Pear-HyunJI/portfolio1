@@ -1,6 +1,7 @@
 @charset "utf-8";
 body {
   overflow-x: hidden;
+  position: relative;
 }
 .section {
   height: 100vh;
@@ -55,14 +56,14 @@ body {
 .timeline {
   border: 1px solid red;
   max-width: 1300px;
-  height: 700px;
+  height: 500px;
   overflow-x: hidden;
   white-space: nowrap;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   scroll-behavior: smooth;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
 }
 .timeline::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
@@ -248,4 +249,70 @@ body {
   background-image: url(../img/airplane.png);
   background-size: contain;
   z-index: 10000000;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1400px) {
+  .timeline {
+    border: 1px solid red;
+    width: 1000px;
+    height: 500px;
+  }
+  .project-card {
+    perspective: 1000px;
+    width: 500px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .timeline {
+    border: 1px solid red;
+    width: 800px;
+    height: 500px;
+  }
+  .project-card {
+    perspective: 1000px;
+    width: 500px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .timeline {
+    width: 100%;
+    height: auto;
+  }
+  .project-card {
+    width: 90%;
+    height: auto;
+  }
+}
+
+/* 네비게이션 스타일 */
+#menu {
+  position: fixed;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  z-index: 1000;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#menu li {
+  margin: 10px 0;
+}
+#menu li a {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  padding: 10px;
+  display: block;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+#menu li.on a {
+  background-color: blue;
+  color: white;
 }
