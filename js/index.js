@@ -1,7 +1,6 @@
 $(document).ready(function () {
   console.log("Document is ready");
 
-  // const typingTexts = ["프론트엔드 개발자입니다", "감사합니다"];
   const typingTexts = [
     "최고의 사용자 경험을 추구합니다",
     "웹 성능 최적화를 중요시합니다",
@@ -56,9 +55,26 @@ $(document).ready(function () {
 
     if (cardInner.hasClass("flipped")) {
       cardInner.css("transform", "rotateY(180deg)");
+      setTimeout(() => {
+        $("#modal").css("display", "block");
+      }, 600); // 카드가 플립된 후 모달 표시
     } else {
       cardInner.css("transform", "rotateY(0deg)");
     }
+  });
+
+  $(".open-modal").on("click", function (e) {
+    e.stopPropagation();
+    $("#modal").css("display", "block");
+  });
+
+  $(".close").on("click", function () {
+    $("#modal").css("display", "none");
+    $("#photo-modal").css("display", "none");
+    // 모달을 닫을 때 카드를 원상태로 돌림
+    $(".card-inner.flipped")
+      .css("transform", "rotateY(0deg)")
+      .removeClass("flipped");
   });
 
   let currentSlideIndex = 0;
@@ -71,7 +87,7 @@ $(document).ready(function () {
       e.stopPropagation();
       currentSlideIndex = index;
       $("#modal-img").attr("src", src);
-      $("#modal").css("display", "block");
+      $("#photo-modal").css("display", "block");
     });
   });
 
@@ -83,10 +99,6 @@ $(document).ready(function () {
     $(".slide").eq(index).addClass("active");
     $(".thumbnail").removeClass("active");
     $thumbnail.addClass("active");
-  });
-
-  $(".close").on("click", function () {
-    $("#modal").css("display", "none");
   });
 
   window.changeSlide = function (n) {
