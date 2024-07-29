@@ -55,21 +55,17 @@ $(document).ready(function () {
 
     if (cardInner.hasClass("flipped")) {
       cardInner.css("transform", "rotateY(180deg)");
+      const modalId = $(this).data("modal");
       setTimeout(() => {
-        $("#modal").css("display", "block");
+        $(`#${modalId}`).css("display", "block");
       }, 600); // 카드가 플립된 후 모달 표시
     } else {
       cardInner.css("transform", "rotateY(0deg)");
     }
   });
 
-  $(".open-modal").on("click", function (e) {
-    e.stopPropagation();
-    $("#modal").css("display", "block");
-  });
-
   $(".close").on("click", function () {
-    $("#modal").css("display", "none");
+    $(".modal").css("display", "none");
     $("#photo-modal").css("display", "none");
     // 모달을 닫을 때 카드를 원상태로 돌림
     $(".card-inner.flipped")
