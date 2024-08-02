@@ -58,6 +58,7 @@ $(document).ready(function () {
       const modalId = $(this).data("modal");
       setTimeout(() => {
         $(`#${modalId}`).css("display", "block");
+        bindThumbnailEvents(modalId); // 모달이 열릴 때 썸네일 이벤트 바인딩
       }, 600); // 카드가 플립된 후 모달 표시
     } else {
       cardInner.css("transform", "rotateY(0deg)");
@@ -71,11 +72,6 @@ $(document).ready(function () {
       .css("transform", "rotateY(0deg)")
       .removeClass("flipped");
   });
-
-  //클로즈포토
-  // $(".close-photo").on("click", function () {
-  //   $("#photo-modal").css("display", "none");
-  // });
 
   let currentSlideIndex = 0;
   const slides = [];
@@ -91,15 +87,18 @@ $(document).ready(function () {
     });
   });
 
-  $(".thumbnail").on("click", function (e) {
-    e.stopPropagation(); // 이벤트 전파 중단
-    const $thumbnail = $(this);
-    const index = $thumbnail.index();
-    $(".slide").removeClass("active");
-    $(".slide").eq(index).addClass("active");
-    $(".thumbnail").removeClass("active");
-    $thumbnail.addClass("active");
-  });
+  function bindThumbnailEvents(modalId) {
+    const $modal = $(`#${modalId}`);
+    $modal.find(".thumbnail").on("click", function (e) {
+      e.stopPropagation(); // 이벤트 전파 중단
+      const $thumbnail = $(this);
+      const index = $thumbnail.index();
+      $modal.find(".slide").removeClass("active");
+      $modal.find(".slide").eq(index).addClass("active");
+      $modal.find(".thumbnail").removeClass("active");
+      $thumbnail.addClass("active");
+    });
+  }
 
   window.changeSlide = function (n) {
     currentSlideIndex = (currentSlideIndex + n + slides.length) % slides.length;
@@ -168,9 +167,9 @@ $(document).ready(function () {
 
   $("#projects .timeline").on("wheel", function (e) {
     if (e.originalEvent.deltaY > 0) {
-      $(this).scrollLeft($(this).scrollLeft() + 100);
+      $(this).scrollLeft($(this).scrollLeft() + 250);
     } else {
-      $(this).scrollLeft($(this).scrollLeft() - 100);
+      $(this).scrollLeft($(this).scrollLeft() - 250);
     }
     e.preventDefault();
   });
