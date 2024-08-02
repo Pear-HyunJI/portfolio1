@@ -66,12 +66,16 @@ $(document).ready(function () {
 
   $(".close").on("click", function () {
     $(".modal").css("display", "none");
-    $("#photo-modal").css("display", "none");
     // 모달을 닫을 때 카드를 원상태로 돌림
     $(".card-inner.flipped")
       .css("transform", "rotateY(0deg)")
       .removeClass("flipped");
   });
+
+  //클로즈포토
+  // $(".close-photo").on("click", function () {
+  //   $("#photo-modal").css("display", "none");
+  // });
 
   let currentSlideIndex = 0;
   const slides = [];
@@ -100,6 +104,11 @@ $(document).ready(function () {
   window.changeSlide = function (n) {
     currentSlideIndex = (currentSlideIndex + n + slides.length) % slides.length;
     $("#modal-img").attr("src", slides[currentSlideIndex]);
+  };
+
+  //클로즈포토
+  window.closePhotoModal = function () {
+    $("#photo-modal").css("display", "none");
   };
 
   // Custom cursor logic
