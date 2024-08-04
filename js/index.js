@@ -1,3 +1,45 @@
+let currentIndex = {
+  picshare: 0,
+  kuwazawa: 0,
+  roblox: 0,
+  haitai: 0,
+  kiloflow: 0,
+};
+
+const thumbnailsPerPage = 5;
+
+function moveThumbnails(direction, modalId) {
+  const $modal = $(`#modal-${modalId}`);
+  const thumbnails = $modal.find(".thumbnail");
+  const totalThumbnails = thumbnails.length;
+
+  currentIndex[modalId] += direction;
+  if (currentIndex[modalId] < 0) {
+    currentIndex[modalId] = 0;
+  } else if (currentIndex[modalId] >= totalThumbnails) {
+    currentIndex[modalId] = totalThumbnails - 1;
+  }
+
+  thumbnails.removeClass("active");
+  const activeThumbnail = thumbnails
+    .eq(currentIndex[modalId])
+    .addClass("active");
+
+  // 슬라이드를 변경
+  const slides = $modal.find(".slide");
+  slides.removeClass("active");
+  slides.eq(currentIndex[modalId]).addClass("active");
+
+  // 썸네일 위치 조정
+  const offset = Math.min(
+    Math.max(0, currentIndex[modalId] - 2),
+    totalThumbnails - thumbnailsPerPage
+  );
+  $modal
+    .find(".thumbnail-indicators")
+    .css("transform", `translateX(-${offset * (60 + 10)}px)`);
+}
+
 $(document).ready(function () {
   console.log("Document is ready");
 

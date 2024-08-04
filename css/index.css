@@ -285,16 +285,27 @@ body {
   object-fit: contain; /* 이미지 비율 유지 */
 }
 
-.thumbnail-indicators {
+.thumbnail-container {
   display: flex;
+  align-items: center;
   justify-content: center;
   margin-top: 10px;
-  flex-wrap: nowrap; /* 한 줄로 유지 */
+}
+
+.thumbnail-wrapper {
+  overflow: hidden;
+  width: 320px; /* 썸네일 5개 * 60px + 4 * 5px 마진 */
+  display: flex;
+}
+
+.thumbnail-indicators {
+  display: flex;
+  transition: transform 0.3s ease;
 }
 
 .thumbnail {
-  width: 60px;
-  height: 60px;
+  width: 55px;
+  height: 55px;
   margin: 0 5px;
   cursor: pointer;
   opacity: 0.5;
@@ -305,8 +316,16 @@ body {
   opacity: 1;
 }
 
+.thumbnail-arrow {
+  cursor: pointer;
+  font-size: 24px;
+  padding: 5px;
+  user-select: none;
+}
+
 /* 디테일 인포 스타일 */
 .detail-info {
+  margin-left: 10px;
   flex: 1;
   overflow-y: auto; /* 세로 스크롤 추가 */
   padding: 10px; /* 패딩 추가 */
@@ -359,6 +378,10 @@ body {
   .slide-info-block {
     flex-direction: column;
     align-items: center;
+  }
+
+  .detail-info {
+    margin-left: 0px;
   }
 
   .detail-image-slider .slide.active {
