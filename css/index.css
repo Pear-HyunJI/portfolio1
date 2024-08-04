@@ -209,9 +209,8 @@ body {
 }
 
 .modal-content {
-  overflow: auto;
+  overflow: hidden; /* 스크롤 숨김 */
   background-color: white;
-  border: 1px solid red;
   padding: 20px;
   border-radius: 10px;
   width: 85%;
@@ -219,12 +218,14 @@ body {
   height: 70%;
   text-align: left;
   position: relative;
+  display: flex; /* 플렉스 박스 */
+  flex-direction: column; /* 세로 정렬 */
 }
 
 .slide-info-block {
   display: flex;
-  border: 1px solid green;
   justify-content: center;
+  flex-grow: 1; /* flex-grow로 공간 채우기 */
 }
 
 .modal-content h3 {
@@ -251,101 +252,129 @@ body {
 }
 
 .detail-image-slider {
-  border: 1px solid green;
   position: relative;
   margin-bottom: 20px;
-  flex: 30%;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  width: 100%; /* 슬라이더 넓이 고정 */
+  max-width: 400px; /* 슬라이더 최대 넓이 */
 }
 
 .detail-image-slider .slide {
   display: none;
-  min-width: 400px;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* 이미지 비율 유지 */
 }
 
 .detail-image-slider .slide.active {
   display: block;
-  border: 1px solid blue;
-  width: 100%;
+  width: 400px;
+  height: 400px; /* 정사각형 비율 */
+  background-color: #ccc; /* 남은 부분 회색 채움 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail-image-slider .slide.active img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* 이미지 비율 유지 */
 }
 
 .thumbnail-indicators {
-  border: 1px solid yellow;
   display: flex;
   justify-content: center;
   margin-top: 10px;
+  flex-wrap: nowrap; /* 한 줄로 유지 */
 }
 
 .thumbnail {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   margin: 0 5px;
   cursor: pointer;
   opacity: 0.5;
+  transition: opacity 0.3s;
 }
 
 .thumbnail.active {
   opacity: 1;
 }
 
+/* 디테일 인포 스타일 */
 .detail-info {
-  border: 1px solid brown;
-  flex: 60%;
+  flex: 1;
+  overflow-y: auto; /* 세로 스크롤 추가 */
+  padding: 10px; /* 패딩 추가 */
+  background-color: #f9f9f9; /* 배경색 추가 */
+  border-radius: 10px; /* 모서리 둥글게 */
 }
 
 .info-wrap {
-  border: 1px solid pink;
   display: flex;
-  padding: 5px;
-  font-size: 12px;
+  padding: 10px 0; /* 상하 패딩 추가 */
+  font-size: 15px;
   align-items: center;
+  border-bottom: 1px solid #ddd; /* 항목 간 구분선 추가 */
+}
+
+.info-wrap:last-child {
+  border-bottom: none; /* 마지막 항목 구분선 제거 */
+}
+
+.info-wrap p,
+.info-wrap a {
+  margin: 0; /* 여백 제거 */
 }
 
 .info-wrap a {
   font-size: 16px;
+  color: #007bff; /* 링크 색상 */
+  text-decoration: none;
+  word-break: break-all; /* 긴 링크 자동 줄바꿈 */
 }
 
 .info-wrap a:hover {
-  color: blue;
+  color: #0056b3; /* 링크 호버 색상 */
 }
 
 .one {
   font-size: 16px;
-  width: 110px;
+  width: 130px; /* 넓이 조정 */
+  font-weight: bold; /* 글꼴 굵게 */
+  flex-shrink: 0; /* 넓이 고정 */
 }
 
 /* 세로가 더 길어질 때 플렉스 레이아웃을 풀고 세로로 쌓이도록 */
 @media (max-width: 900px) {
+  .modal-content {
+    flex-direction: column;
+    overflow: scroll;
+  }
+
   .slide-info-block {
-    border: 1px solid blue;
     flex-direction: column;
     align-items: center;
   }
 
-  .detail-image-slider {
-    margin-bottom: 20px;
-    max-width: 100%;
+  .detail-image-slider .slide.active {
+    display: block;
+    max-width: 400px;
+    max-height: 400px; /* 정사각형 비율 */
+    background-color: #ccc; /* 남은 부분 회색 채움 */
     display: flex;
-    flex-direction: row;
     justify-content: center;
-  }
-
-  .thumbnail-indicators {
-    border: 1px solid yellow;
-    display: flex;
-    /* justify-content: center; */
-    margin-top: 0px;
-    margin-left: 10px;
-    flex-direction: column;
-    width: 60px;
+    align-items: center;
   }
 
   .thumbnail {
     margin: 5px !important;
-    width: 40px !important;
-    height: 40px !important;
+    width: 50px !important;
+    height: 50px !important;
   }
 }
 
@@ -384,9 +413,9 @@ body {
 
 #photo-modal .close-photo {
   position: absolute;
-  top: 50px;
+  top: 35px;
   right: 35px;
-  color: red;
+  color: #fff;
   font-size: 40px;
   font-weight: bold;
   transition: 0.3s;
