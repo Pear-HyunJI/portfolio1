@@ -14,14 +14,15 @@ body {
 .typing-effect {
   font-size: 24px;
   height: 32px;
-  margin: 20px 50px;
+  margin: 20px 0;
   position: relative;
+  display: inline-block; /* 텍스트와 커서를 같이 움직이도록 하기 위함 */
 }
 .typing-effect::after {
   content: "";
   position: absolute;
   height: 100%;
-  right: -10px;
+  right: -5px; /* 커서를 텍스트 바로 뒤로 위치시키기 위해 조정 */
   width: 2px;
   background-color: black;
   animation: blink 0.7s infinite;
@@ -38,11 +39,29 @@ body {
   }
 }
 .icons {
-  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  margin: 60px;
+}
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 30px;
 }
 .icons a {
   font-size: 35px;
-  margin: 0 15px;
+  color: black;
+  transition: transform 0.3s, color 0.3s;
+}
+.icons a:hover {
+  transform: scale(1.2);
+  color: #007bff;
+}
+.icon-text {
+  margin-top: 5px;
+  font-size: 16px;
+  color: #333;
 }
 
 /* skills section */
