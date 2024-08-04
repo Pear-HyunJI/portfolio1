@@ -304,4 +304,58 @@ $(document).ready(function () {
   // CSS 스크롤 스냅 추가
   document.documentElement.style.scrollSnapType = "y mandatory";
   $(".section").css("scrollSnapAlign", "start");
+
+  // 스와이프 기능 추가
+  const projectsTimeline = document.querySelector("#projects .timeline");
+
+  let isSwiping = false;
+  let startX;
+
+  projectsTimeline.addEventListener("mousedown", (e) => {
+    isSwiping = true;
+    startX = e.pageX - projectsTimeline.offsetLeft;
+    projectsTimeline.style.cursor = "grabbing";
+    projectsTimeline.style.userSelect = "none"; // 선택 방지
+  });
+
+  projectsTimeline.addEventListener("mouseup", () => {
+    isSwiping = false;
+    projectsTimeline.style.cursor = "grab";
+    projectsTimeline.style.userSelect = "auto"; // 선택 허용
+  });
+
+  projectsTimeline.addEventListener("mousemove", (e) => {
+    if (!isSwiping) return;
+    e.preventDefault();
+    const x = e.pageX - projectsTimeline.offsetLeft;
+    const walk = x - startX;
+    projectsTimeline.scrollLeft -= walk;
+  });
+
+  projectsTimeline.addEventListener("mouseleave", () => {
+    isSwiping = false;
+    projectsTimeline.style.cursor = "grab";
+    projectsTimeline.style.userSelect = "auto"; // 선택 허용
+  });
+
+  projectsTimeline.addEventListener("touchstart", (e) => {
+    isSwiping = true;
+    startX = e.touches[0].pageX - projectsTimeline.offsetLeft;
+    projectsTimeline.style.cursor = "grabbing";
+    projectsTimeline.style.userSelect = "none"; // 선택 방지
+  });
+
+  projectsTimeline.addEventListener("touchend", () => {
+    isSwiping = false;
+    projectsTimeline.style.cursor = "grab";
+    projectsTimeline.style.userSelect = "auto"; // 선택 허용
+  });
+
+  projectsTimeline.addEventListener("touchmove", (e) => {
+    if (!isSwiping) return;
+    e.preventDefault();
+    const x = e.touches[0].pageX - projectsTimeline.offsetLeft;
+    const walk = x - startX;
+    projectsTimeline.scrollLeft -= walk;
+  });
 });
