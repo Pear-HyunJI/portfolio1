@@ -5,7 +5,7 @@ body {
   scroll-snap-type: y mandatory;
 }
 .section {
-  height: 100vh;
+  min-height: 100vh;
   padding: 20px;
   scroll-snap-align: start;
 }
@@ -16,13 +16,13 @@ body {
   height: 32px;
   margin: 20px 0;
   position: relative;
-  display: inline-block; /* 텍스트와 커서를 같이 움직이도록 하기 위함 */
+  display: inline-block;
 }
 .typing-effect::after {
   content: "";
   position: absolute;
   height: 100%;
-  right: -5px; /* 커서를 텍스트 바로 뒤로 위치시키기 위해 조정 */
+  right: -5px;
   width: 2px;
   background-color: black;
   animation: blink 0.7s infinite;
@@ -65,30 +65,25 @@ body {
 }
 
 /* skills section */
-
 #skills h2 {
   font-size: 36px;
   color: #333;
   margin-bottom: 20px;
 }
-
 .skills-description {
   font-size: 18px;
   color: #666;
   margin-bottom: 40px;
   line-height: 1.6;
 }
-
 .skill-category {
   margin-bottom: 30px;
 }
-
 .skill-category h3 {
   font-size: 24px;
   color: #a4a4a4;
   margin-bottom: 20px;
 }
-
 #skills ul {
   display: flex;
   flex-wrap: wrap;
@@ -96,7 +91,6 @@ body {
   padding: 0;
   margin: 0;
 }
-
 #skills li {
   display: flex;
   flex-direction: column;
@@ -104,11 +98,9 @@ body {
   margin: 10px 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 #skills li:hover {
   transform: translateY(-10px);
 }
-
 #skills img {
   width: 50px;
   height: 50px;
@@ -116,7 +108,6 @@ body {
 }
 
 /* project section */
-
 .timeline {
   max-width: 100vw;
   height: 600px;
@@ -219,16 +210,14 @@ body {
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.4);
 }
-
 .modal-content-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
 }
-
 .modal-content {
-  overflow: hidden; /* 스크롤 숨김 */
+  overflow: hidden;
   background-color: white;
   padding: 20px;
   border-radius: 10px;
@@ -237,22 +226,19 @@ body {
   height: 70%;
   text-align: left;
   position: relative;
-  display: flex; /* 플렉스 박스 */
-  flex-direction: column; /* 세로 정렬 */
+  display: flex;
+  flex-direction: column;
 }
-
 .slide-info-block {
   display: flex;
   justify-content: center;
-  flex-grow: 1; /* flex-grow로 공간 채우기 */
+  flex-grow: 1;
 }
-
 .modal-content h3 {
   font-size: 24px;
   margin-bottom: 20px;
   display: flex;
 }
-
 .modal .close {
   position: absolute;
   top: 15px;
@@ -262,14 +248,12 @@ body {
   font-weight: bold;
   transition: 0.3s;
 }
-
 .modal .close:hover,
 .modal .close:focus {
   color: #bbb;
   text-decoration: none;
   cursor: pointer;
 }
-
 .detail-image-slider {
   position: relative;
   margin-bottom: 20px;
@@ -277,51 +261,44 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%; /* 슬라이더 넓이 고정 */
-  max-width: 400px; /* 슬라이더 최대 넓이 */
+  width: 100%;
+  max-width: 400px;
 }
-
 .detail-image-slider .slide {
   display: none;
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain; /* 이미지 비율 유지 */
+  object-fit: contain;
 }
-
 .detail-image-slider .slide.active {
   display: block;
   width: 400px;
-  height: 400px; /* 정사각형 비율 */
-  background-color: #ccc; /* 남은 부분 회색 채움 */
+  height: 400px;
+  background-color: #ccc;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 .detail-image-slider .slide.active img {
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain; /* 이미지 비율 유지 */
+  object-fit: contain;
 }
-
 .thumbnail-container {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 10px;
 }
-
 .thumbnail-wrapper {
   overflow: hidden;
-  width: 320px; /* 썸네일 5개 * 60px + 4 * 5px 마진 */
+  width: 320px;
   display: flex;
 }
-
 .thumbnail-indicators {
   display: flex;
   transition: transform 0.3s ease;
 }
-
 .thumbnail {
   width: 55px;
   height: 55px;
@@ -330,11 +307,9 @@ body {
   opacity: 0.5;
   transition: opacity 0.3s;
 }
-
 .thumbnail.active {
   opacity: 1;
 }
-
 .thumbnail-arrow {
   cursor: pointer;
   font-size: 24px;
@@ -346,45 +321,39 @@ body {
 .detail-info {
   margin-left: 10px;
   flex: 1;
-  overflow-y: auto; /* 세로 스크롤 추가 */
-  padding: 10px; /* 패딩 추가 */
-  background-color: #f9f9f9; /* 배경색 추가 */
-  border-radius: 10px; /* 모서리 둥글게 */
+  overflow-y: auto;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
 }
-
 .info-wrap {
   display: flex;
-  padding: 10px 0; /* 상하 패딩 추가 */
+  padding: 10px 0;
   font-size: 15px;
   align-items: center;
-  border-bottom: 1px solid #ddd; /* 항목 간 구분선 추가 */
+  border-bottom: 1px solid #ddd;
 }
-
 .info-wrap:last-child {
-  border-bottom: none; /* 마지막 항목 구분선 제거 */
+  border-bottom: none;
 }
-
 .info-wrap p,
 .info-wrap a {
-  margin: 0; /* 여백 제거 */
+  margin: 0;
 }
-
 .info-wrap a {
   font-size: 16px;
-  color: #007bff; /* 링크 색상 */
+  color: #007bff;
   text-decoration: none;
-  word-break: break-all; /* 긴 링크 자동 줄바꿈 */
+  word-break: break-all;
 }
-
 .info-wrap a:hover {
-  color: #0056b3; /* 링크 호버 색상 */
+  color: #0056b3;
 }
-
 .one {
   font-size: 16px;
-  width: 130px; /* 넓이 조정 */
-  font-weight: bold; /* 글꼴 굵게 */
-  flex-shrink: 0; /* 넓이 고정 */
+  width: 130px;
+  font-weight: bold;
+  flex-shrink: 0;
 }
 
 /* 세로가 더 길어질 때 플렉스 레이아웃을 풀고 세로로 쌓이도록 */
@@ -393,26 +362,22 @@ body {
     flex-direction: column;
     overflow: scroll;
   }
-
   .slide-info-block {
     flex-direction: column;
     align-items: center;
   }
-
   .detail-info {
     margin-left: 0px;
   }
-
   .detail-image-slider .slide.active {
     display: block;
     max-width: 400px;
-    max-height: 400px; /* 정사각형 비율 */
-    background-color: #ccc; /* 남은 부분 회색 채움 */
+    max-height: 400px;
+    background-color: #ccc;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-
   .thumbnail {
     margin: 5px !important;
     width: 50px !important;
@@ -422,7 +387,6 @@ body {
 
 /* 포토 모달 */
 #photo-modal {
-  border: 1px solid blue;
   display: none;
   position: fixed;
   z-index: 10000;
@@ -433,18 +397,15 @@ body {
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
 }
-
 #photo-modal .modal-content-container {
-  border: 2px solid tomato;
   max-width: 100%;
   width: 100%;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center; /* 이 줄은 필요 없지만, 텍스트 정렬을 원한다면 남겨두세요 */
+  text-align: center;
 }
-
 #photo-modal .modal-content {
   margin: auto;
   display: block;
@@ -452,7 +413,6 @@ body {
   height: auto;
   position: relative;
 }
-
 #photo-modal .close-photo {
   position: absolute;
   top: 35px;
@@ -462,14 +422,12 @@ body {
   font-weight: bold;
   transition: 0.3s;
 }
-
 #photo-modal .close-photo:hover,
 #photo-modal .close-photo:focus {
   color: #bbb;
   text-decoration: none;
   cursor: pointer;
 }
-
 #photo-modal .prev,
 #photo-modal .next {
   cursor: pointer;
@@ -485,15 +443,12 @@ body {
   border-radius: 3px;
   user-select: none;
 }
-
 #photo-modal .prev {
   left: 0;
 }
-
 #photo-modal .next {
   right: 0;
 }
-
 #photo-modal .prev:hover,
 #photo-modal .next:hover {
   background-color: rgba(0, 0, 0, 0.8);
@@ -505,7 +460,6 @@ body {
   margin-bottom: 20px;
   color: #333;
 }
-
 .scrolling-text {
   display: flex;
   flex-direction: column;
@@ -513,33 +467,28 @@ body {
   margin-bottom: 30px;
   overflow: hidden;
 }
-
 .text-row {
   font-size: 24px;
   font-weight: bold;
   color: #888;
   white-space: nowrap;
 }
-
 .text-row.left {
   padding: 40px 0;
   font-weight: bold;
   font-size: 30px;
   animation: scroll-left 50s linear infinite;
 }
-
 .text-row.center {
   color: #555;
   transition: color 0.5s;
 }
-
 .text-row.right {
   padding: 40px 0;
   font-weight: bold;
   font-size: 30px;
   animation: scroll-right 50s linear infinite;
 }
-
 @keyframes scroll-left {
   0% {
     transform: translateX(100%);
@@ -548,7 +497,6 @@ body {
     transform: translateX(-100%);
   }
 }
-
 @keyframes scroll-right {
   0% {
     transform: translateX(-100%);
@@ -557,7 +505,6 @@ body {
     transform: translateX(100%);
   }
 }
-
 .statement {
   max-width: 1200px;
   font-size: 18px;
@@ -569,7 +516,6 @@ body {
 .statement p {
   padding: 10px 0 0 0;
 }
-
 @media (max-width: 960px) {
   .statement1 {
     display: none;
@@ -578,7 +524,6 @@ body {
     display: block;
   }
 }
-
 @media (min-width: 961px) {
   .statement1 {
     display: block;
@@ -595,37 +540,30 @@ body {
   padding: 20px;
   border-radius: 10px;
 }
-
 #contact h2 {
   text-align: center;
   margin-bottom: 20px;
   font-size: 28px;
 }
-
 .formbox {
   padding: 20px;
   border-radius: 10px;
 }
-
 #contact-form fieldset {
   border: none;
 }
-
 #contact-form table {
   width: 100%;
   border-collapse: collapse;
 }
-
 #contact-form td {
   padding: 10px;
 }
-
 #contact-form label {
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
 }
-
 #contact-form input,
 #contact-form textarea {
   width: 100%;
@@ -634,17 +572,14 @@ body {
   border-radius: 5px;
   font-size: 16px;
 }
-
 #contact-form textarea {
   resize: vertical;
   min-height: 100px;
 }
-
 #contact-form .btn {
   text-align: center;
   margin-top: 20px;
 }
-
 #contact-form button {
   background-color: #0080f6;
   color: white;
@@ -656,15 +591,12 @@ body {
   font-size: 16px;
   transition: background-color 0.3s ease;
 }
-
 #contact-form button[type="reset"] {
   background-color: #b7b7b7;
 }
-
 #contact-form button:hover {
   background-color: #0770d0;
 }
-
 #contact-form button[type="reset"]:hover {
   background-color: #a4a4a4;
 }
@@ -693,7 +625,6 @@ body {
   text-align: center;
   background: #dcdcdc;
 }
-
 #skills .content {
   padding: 50px 0 0 300px;
 }
@@ -739,7 +670,6 @@ body {
   border-radius: 50%;
   mix-blend-mode: difference;
 }
-
 .paper-plane {
   position: absolute;
   width: 40px;
@@ -779,25 +709,20 @@ body {
     overflow: hidden;
   }
 }
-
 @media (max-width: 1130px) {
   /* skills section */
   .skills-description {
     font-size: 15px;
-
     margin-bottom: 20px;
     line-height: 1.2;
   }
-
   .skill-category {
     margin-bottom: 10px;
   }
-
   .skill-category h3 {
     font-size: 20px;
     margin-bottom: 15px;
   }
-
   #skills li {
     margin: 7px 20px;
   }
@@ -844,7 +769,6 @@ body {
     overflow: hidden;
   }
 }
-
 @media (max-width: 860px) {
   /* skills section */
   #skills .content {
@@ -852,24 +776,19 @@ body {
   }
   .skills-description {
     font-size: 15px;
-
     margin-bottom: 20px;
     line-height: 1.2;
   }
-
   .skill-category {
     margin-bottom: 10px;
   }
-
   .skill-category h3 {
     font-size: 20px;
     margin-bottom: 15px;
   }
-
   #skills li {
     margin: 7px 20px;
   }
-
   #skills img {
     width: 40px;
     height: 40px;
@@ -899,14 +818,12 @@ body {
     height: 20px;
     margin: 0 2px;
   }
-
   .card-back {
     padding: 5px;
   }
   .card-back h3 {
     font-size: 18px;
   }
-
   .info-wrap {
     padding: 3px;
     font-size: 11px;
@@ -941,23 +858,13 @@ body {
 }
 @media (max-width: 600px) {
   /* skills section */
-
   #skills img {
     width: 20px;
     height: 20px;
     margin-bottom: 4px;
   }
-  /* .timeline {
-    width: 100%;
-    height: auto;
-  }
-  .project-card {
-    width: 90%;
-    height: auto;
-  } */
 }
 
-/* 네비게이션 스타일 */
 /* 네비게이션 스타일 */
 #menu {
   position: fixed;
@@ -969,12 +876,10 @@ body {
   margin: 0;
   display: none;
 }
-
 #menu li {
   margin: 5px 0;
-  position: relative; /* ::before 요소의 절대 위치 설정을 위해 부모 요소를 상대 위치로 설정 */
+  position: relative;
 }
-
 #menu li a {
   text-decoration: none;
   color: black;
@@ -983,29 +888,25 @@ body {
   border-radius: 5px;
   transition: background-color 0.3s;
 }
-
 #menu li.on a {
   font-weight: bold;
   text-decoration: underline;
 }
-
 #menu li.on a::before {
   content: "";
   border-radius: 50%;
   border: 2px solid #000;
   width: 5px;
   height: 5px;
-
   position: absolute;
-  left: -15px; /* 동그라미 위치 조정 */
-  top: 50%; /* 세로 중앙 정렬 */
-  transform: translateY(-50%); /* 세로 중앙 정렬 */
+  left: -15px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 /* 스타트 섹션 스타일 */
 #startSection {
   background: #eaeaea;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1013,33 +914,27 @@ body {
   height: 100vh;
   text-align: center;
 }
-
 #startSection p {
   font-weight: bold;
   font-size: 23px;
   padding: 15px;
 }
-
 #menu2 {
   display: flex;
   margin-top: 20px;
 }
-
 #menu2 ul {
   list-style: none;
   padding: 0;
 }
-
 #menu2 li {
   margin: 10px 0;
   list-style: none;
 }
-
 #menu2 li a {
   color: #8d8d8d;
   font-size: 18px;
 }
 #menu2 li a:hover {
   color: #000;
-  /* font-weight: bold; */
 }
